@@ -1,24 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout
-    android:id="@+id/coordinatorlayout"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".sample.MainActivity">
-
-
-    <!--</FrameLayout>-->
-    <!--<fragment-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent"-->
-    <!--android:id="@+id/support_map"-->
-    <!--android:name="com.google.android.gms.maps.SupportMapFragment"/>-->
+    tools:context="co.com.parsoniisolutions.custombottomsheetbehavior.NavigationActivity">
 
     <android.support.design.widget.AppBarLayout
-        android:id="@+id/appbarlayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay"
@@ -29,7 +19,9 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay"/>
+
     </android.support.design.widget.AppBarLayout>
 
     <FrameLayout
@@ -85,6 +77,16 @@
         app:layout_anchorGravity="top|right|end"
         app:layout_behavior="@string/ScrollAwareFABBehavior"/>
 
+    <!--  <include layout="@layout/content_navigation"/>-->
+
+    <!-- <android.support.design.widget.FloatingActionButton
+         android:id="@+id/fab"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_gravity="bottom|end"
+         android:layout_margin="@dimen/fab_margin"
+         app:srcCompat="@android:drawable/ic_dialog_email"/>-->
+
     <android.support.design.widget.AppBarLayout
         android:id="@+id/merged_appbarlayout"
         android:layout_width="match_parent"
@@ -115,4 +117,5 @@
                 app:title="@string/key_binding_default_toolbar_name"/>
         </FrameLayout>
     </android.support.design.widget.AppBarLayout>
+
 </android.support.design.widget.CoordinatorLayout>

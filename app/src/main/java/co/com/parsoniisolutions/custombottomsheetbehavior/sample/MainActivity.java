@@ -4,19 +4,22 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
+import co.com.parsoniisolutions.custombottomsheetbehavior.R;
 import co.com.parsoniisolutions.custombottomsheetbehavior.lib.BottomSheetBehaviorGoogleMapsLike;
 import co.com.parsoniisolutions.custombottomsheetbehavior.lib.MergedAppBarLayoutBehavior;
-import co.com.parsoniisolutions.custombottomsheetbehavior.R;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity
+{
 
 
     int[] mDrawables = {
@@ -29,32 +32,54 @@ public class MainActivity extends AppCompatActivity {
     };
 
     TextView bottomSheetTextView;
+    BottomSheetBehaviorGoogleMapsLike behavior;
+    FloatingActionButton floatingActionButton;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+       /* Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);*/
         ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
+        if (actionBar != null)
+        {
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setTitle(" ");
         }
+
+        floatingActionButton = (FloatingActionButton) findViewById(R.id.fab);
+
+        Button dabbaButton = (Button) findViewById(R.id.sample_button);
+        dabbaButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                behavior.setState(BottomSheetBehaviorGoogleMapsLike.STATE_COLLAPSED);
+            }
+        });
 
         /**
          * If we want to listen for states callback
          */
         CoordinatorLayout coordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinatorlayout);
         View bottomSheet = coordinatorLayout.findViewById(R.id.bottom_sheet);
-        final BottomSheetBehaviorGoogleMapsLike behavior = BottomSheetBehaviorGoogleMapsLike.from(bottomSheet);
-        behavior.addBottomSheetCallback(new BottomSheetBehaviorGoogleMapsLike.BottomSheetCallback() {
+
+        behavior = BottomSheetBehaviorGoogleMapsLike.from(bottomSheet);
+        behavior.setHideable(true);
+        behavior.addBottomSheetCallback(new BottomSheetBehaviorGoogleMapsLike.BottomSheetCallback()
+        {
             @Override
-            public void onStateChanged(@NonNull View bottomSheet, int newState) {
-                switch (newState) {
+            public void onStateChanged(@NonNull View bottomSheet, int newState)
+            {
+                switch (newState)
+                {
                     case BottomSheetBehaviorGoogleMapsLike.STATE_COLLAPSED:
                         Log.d("bottomsheet-", "STATE_COLLAPSED");
+                        floatingActionButton.setVisibility(View.VISIBLE);
                         break;
                     case BottomSheetBehaviorGoogleMapsLike.STATE_DRAGGING:
                         Log.d("bottomsheet-", "STATE_DRAGGING");
@@ -67,6 +92,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case BottomSheetBehaviorGoogleMapsLike.STATE_HIDDEN:
                         Log.d("bottomsheet-", "STATE_HIDDEN");
+                        floatingActionButton.setVisibility(View.GONE);
                         break;
                     default:
                         Log.d("bottomsheet-", "STATE_SETTLING");
@@ -75,22 +101,25 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onSlide(@NonNull View bottomSheet, float slideOffset) {
+            public void onSlide(@NonNull View bottomSheet, float slideOffset)
+            {
             }
         });
 
         AppBarLayout mergedAppBarLayout = (AppBarLayout) findViewById(R.id.merged_appbarlayout);
         MergedAppBarLayoutBehavior mergedAppBarLayoutBehavior = MergedAppBarLayoutBehavior.from(mergedAppBarLayout);
         mergedAppBarLayoutBehavior.setToolbarTitle("Title Dummy");
-        mergedAppBarLayoutBehavior.setNavigationOnClickListener(new View.OnClickListener() {
+        mergedAppBarLayoutBehavior.setNavigationOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 behavior.setState(BottomSheetBehaviorGoogleMapsLike.STATE_COLLAPSED);
             }
         });
 
         bottomSheetTextView = (TextView) bottomSheet.findViewById(R.id.bottom_sheet_title);
-        ItemPagerAdapter adapter = new ItemPagerAdapter(this,mDrawables);
+        ItemPagerAdapter adapter = new ItemPagerAdapter(this, mDrawables);
         ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
         viewPager.setAdapter(adapter);
     }
