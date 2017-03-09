@@ -16,13 +16,13 @@ STATE_EXPANDED.<br><br>
 
 
 ## Motivation
-Spend more than 3 days looking snipet of code or stackoverflow answers about it with no lucky.
+Spend more than 3 days looking snipet of code or stackoverflow answers about it with no luck.
 
 ## Help or improvements
 Do you want to help?
 Wanna improve it?
 Go ahead!<br>
-Giving thx to akaN44 because he is helping so much.
+Giving thx to @akaN44 and @vit001 for their contribution :D.
 
 ## Current state
 Working on get parallax image behavior and toolbar like google maps.

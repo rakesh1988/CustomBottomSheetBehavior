@@ -1,6 +1,8 @@
 package co.com.parsoniisolutions.custombottomsheetbehavior.sample;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
@@ -12,6 +14,10 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+<<<<<<< HEAD
+=======
+import android.widget.ImageView;
+>>>>>>> e99fa1612d4152468ad52eef796685b214f04c26
 import android.widget.TextView;
 
 import co.com.parsoniisolutions.custombottomsheetbehavior.R;
@@ -122,6 +128,7 @@ public class MainActivity extends AppCompatActivity
         ItemPagerAdapter adapter = new ItemPagerAdapter(this, mDrawables);
         ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
         viewPager.setAdapter(adapter);
-    }
 
+        behavior.setState(BottomSheetBehaviorGoogleMapsLike.STATE_ANCHOR_POINT);
+    }
 }

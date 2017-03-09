@@ -22,7 +22,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay"
-        app:behavior_scrolling_appbar_peek_height="@dimen/bottom_sheet_peek_height"
         app:layout_behavior="@string/ScrollingAppBarLayoutBehavior">
 
         <android.support.v7.widget.Toolbar
@@ -61,8 +60,13 @@
         android:fitsSystemWindows="true"
         android:orientation="vertical"
         app:anchorPoint="@dimen/anchor_point"
+<<<<<<< HEAD
         app:behavior_peekHeight="@dimen/bottom_sheet_peek_height"
         app:layout_behavior="@string/BottomSheetBehaviorGoogleMapsLike">
+=======
+        app:behavior_hideable="true"
+        android:fitsSystemWindows="true">
+>>>>>>> e99fa1612d4152468ad52eef796685b214f04c26
 
         <include
             layout="@layout/bottom_sheet_content"
@@ -88,10 +92,14 @@
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
         android:tag="modal-appbar"
+<<<<<<< HEAD
         android:theme="@style/AppTheme.AppBarOverlay"
         app:behavior_merged_appbar_anchor_point="@dimen/anchor_point"
         app:layout_behavior="@string/MergedAppBarLayoutBehavior">
 
+=======
+        app:layout_behavior="@string/MergedAppBarLayoutBehavior">
+>>>>>>> e99fa1612d4152468ad52eef796685b214f04c26
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
